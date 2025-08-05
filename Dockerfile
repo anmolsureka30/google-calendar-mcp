@@ -34,7 +34,7 @@ RUN mkdir -p /home/nodejs/.config/google-calendar-mcp && \
 
 # Create secrets directory and copy credentials
 RUN mkdir -p /etc/secrets
-# COPY gcp-oauth.keys.json /etc/secrets/gcp-oauth.keys.json
+COPY gcp-oauth.keys.json /etc/secrets/gcp-oauth.keys.json
 RUN chown -R nodejs:nodejs /etc/secrets && \
     chmod 600 /etc/secrets/gcp-oauth.keys.json
 
