@@ -45,4 +45,4 @@ USER nodejs
 EXPOSE 3000
 
 # Default command - run directly to avoid npm output
-CMD ["node", "start:http:public"]
+CMD ["node", "run", "start:http:public"]
