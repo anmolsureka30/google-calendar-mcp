@@ -33,7 +33,7 @@
   "author": "nspady",
   "license": "MIT",
   "scripts": {
-    "start": "node build/index.js && cp /etc/secrets/gcp-oauth.keys.json ./gcp-oauth.keys.json",
+    "start": "node build/index.js --transport http --port 3000 --host 0.0.0.0",
     "build": "node scripts/build.js",
     "auth": "node build/auth-server.js",
     "dev": "node scripts/dev.js",
