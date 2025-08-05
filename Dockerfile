@@ -33,10 +33,13 @@ RUN mkdir -p /home/nodejs/.config/google-calendar-mcp && \
     chown -R nodejs:nodejs /app
 
 # Switch to non-root user
+RUN chown -R nodejs:nodejs /etc/secrets && \
+    chmod 600 /etc/secrets/gcp-oauth.keys.json
+
 USER nodejs
 
 # Expose port for HTTP mode (optional)
 EXPOSE 3000
 
 # Default command - run directly to avoid npm output
-CMD ["node", "build/index.js"]
+CMD ["node", "start"]
