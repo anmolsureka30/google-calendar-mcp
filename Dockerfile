@@ -32,10 +32,13 @@ RUN mkdir -p /home/nodejs/.config/google-calendar-mcp && \
     chown -R nodejs:nodejs /home/nodejs/.config && \
     chown -R nodejs:nodejs /app
 
-# Switch to non-root user
+# Create secrets directory and copy credentials
+RUN mkdir -p /etc/secrets
+COPY gcp-oauth.keys.json /etc/secrets/gcp-oauth.keys.json
 RUN chown -R nodejs:nodejs /etc/secrets && \
     chmod 600 /etc/secrets/gcp-oauth.keys.json
 
+# Switch to non-root user
 USER nodejs
 
 # Expose port for HTTP mode (optional)
